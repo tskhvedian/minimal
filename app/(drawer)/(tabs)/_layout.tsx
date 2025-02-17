@@ -1,7 +1,7 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { PortalHost } from "@rn-primitives/portal";
 
 const tabItems = [
   { name: "bonuses" },
@@ -17,73 +17,76 @@ const tabItems = [
 
 const TabsLayout = () => {
   return (
-    <Tabs
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: "black",
-      }}
-    >
-      {tabItems.map(({ name }, index) => (
-        <Tabs.Screen
-          key={index}
-          name={`(menu)/${name}`}
-          options={{ href: null }}
-        />
-      ))}
+    <>
+      <Tabs
+        screenOptions={{
+          headerShown: false,
+          tabBarActiveTintColor: "black",
+        }}
+      >
+        {tabItems.map(({ name }, index) => (
+          <Tabs.Screen
+            key={index}
+            name={`(menu)/${name}`}
+            options={{ href: null }}
+          />
+        ))}
 
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name={focused ? "home" : "home-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="matches"
-        options={{
-          title: "Matches",
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name={focused ? "checkmark-circle" : "checkmark-circle-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="scheduled"
-        options={{
-          title: "Scheduled",
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name={focused ? "calendar" : "calendar-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name={focused ? "person-circle" : "person-circle-outline"}
-              size={size}
-              color={color}
-            />
-          ),
-        }}
-      />
-    </Tabs>
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: "Home",
+            tabBarIcon: ({ focused, color, size }) => (
+              <Ionicons
+                name={focused ? "home" : "home-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="matches"
+          options={{
+            title: "Matches",
+            tabBarIcon: ({ focused, color, size }) => (
+              <Ionicons
+                name={focused ? "checkmark-circle" : "checkmark-circle-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="scheduled"
+          options={{
+            title: "Scheduled",
+            tabBarIcon: ({ focused, color, size }) => (
+              <Ionicons
+                name={focused ? "calendar" : "calendar-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            title: "Profile",
+            tabBarIcon: ({ focused, color, size }) => (
+              <Ionicons
+                name={focused ? "person-circle" : "person-circle-outline"}
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+      </Tabs>
+      <PortalHost />
+    </>
   );
 };
 

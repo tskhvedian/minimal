@@ -25,7 +25,6 @@ const DARK_THEME: Theme = {
 };
 
 export {
-  // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from "expo-router";
 
@@ -70,7 +69,7 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-      <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
+      <StatusBar style={"light"} />
       <Stack screenOptions={{ headerShown: false }} />
       <PortalHost />
     </ThemeProvider>

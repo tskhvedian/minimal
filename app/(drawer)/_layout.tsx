@@ -10,6 +10,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Colors } from "@/constants/Colors";
+import { PortalHost } from "@rn-primitives/portal";
 
 const drawerItems = [
   { label: "Bonuses", url: "bonuses", iconName: "checkmark-circle-outline" },
@@ -100,26 +101,29 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
 
 const DrawerLayout = () => {
   return (
-    <Drawer
-      drawerContent={(props) => <CustomDrawerContent {...props} />}
-      screenOptions={{
-        headerShown: true,
-        drawerStyle: { width: 260 },
-        headerStyle: {
-          backgroundColor: Colors.greenPrimary,
-        },
-        headerTintColor: "white",
-        headerTitle: () => (
-          <Image
-            source={require("@/assets/images/logo-white.png")}
-            className="w-20"
-            resizeMode="contain"
-          />
-        ),
-        drawerType: "front",
-        headerRight: () => <ThemeToggle />,
-      }}
-    />
+    <>
+      <Drawer
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
+        screenOptions={{
+          headerShown: true,
+          drawerStyle: { width: 260 },
+          headerStyle: {
+            backgroundColor: Colors.greenPrimary,
+          },
+          headerTintColor: "white",
+          headerTitle: () => (
+            <Image
+              source={require("@/assets/images/logo-white.png")}
+              className="w-20"
+              resizeMode="contain"
+            />
+          ),
+          drawerType: "front",
+          headerRight: () => <ThemeToggle />,
+        }}
+      />
+      <PortalHost />
+    </>
   );
 };
 
