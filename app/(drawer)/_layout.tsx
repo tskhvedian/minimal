@@ -70,7 +70,11 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
                 fontFamily: "WorkSans-Medium",
               }}
               icon={() => (
-                <Ionicons name={iconName as any} size={18} color="black" />
+                <Ionicons
+                  name={iconName as any}
+                  size={18}
+                  color="black"
+                />
               )}
               onPress={() => {
                 router.push(`/(drawer)/(tabs)/(menu)/${url}` as any);
@@ -112,11 +116,13 @@ const DrawerLayout = () => {
           },
           headerTintColor: "white",
           headerTitle: () => (
-            <Image
-              source={require("@/assets/images/logo-white.png")}
-              className="w-20"
-              resizeMode="contain"
-            />
+            <View>
+              <Image
+                source={require("@/assets/images/logo-white.png")}
+                className="w-20 h-8"
+                resizeMode="contain"
+              />
+            </View>
           ),
           drawerType: "front",
           headerRight: () => <ThemeToggle />,
